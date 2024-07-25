@@ -56,36 +56,41 @@ Use function to make a list of valid indexes called "index_dict"
 initialize counters of each type of index pair to print at end of analysis
 
 Open all files
+
     for each line in files: # all files will have equal number of lines
+    
         read1 = line from R1
+        
         index1 = line from R2
+        
         index2 = reverse complement of line from R3
+        
         read2 = line from R4
+        
         # check if indexes are valid indexes
-        if index1 is in index_dict and passes lowest_qscore:
+        
+        if index1 is in index_dict or doesnt pass lowest_qscore:
+        
             write read1 with index headers to R1_unknown
+            
             write read2 with index headers to R2_unknown
-        elif index2 is in index_dict and passes lowest_qscore:
+            
+        elif index2 is in index_dict or doesnt pass lowest_qscore:
+        
             write read1 with index headers to R1_unknown
+            
             write read2 with index headers to R2_unknown
+            
         else: # barcodes are valid!
+        
             if index1 == index2:
+            
                 write read1 with index headers to R1_<index1>
+                
                 write read2 with index headers to R2_<index1>
+                
             else: # index1 != index2:
+            
                 write read1 with index headers to R1_hopped
+                
                 write read2 with index headers to R2_hopped
-        
-        
-
-
-
-1. Define the problem
-2. Describe output
-3. Upload your [4 input FASTQ files](../TEST-input_FASTQ) and your [>=6 expected output FASTQ files](../TEST-output_FASTQ).
-4. Pseudocode
-5. High level functions. For each function, be sure to include:
-    1. Description/doc string
-    2. Function headers (name and parameters)
-    3. Test examples for individual functions
-    4. Return statement
