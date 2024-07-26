@@ -19,13 +19,13 @@
 
 I want to demultiplex the files and report any index hopping that occurred. This means that reads with matching indexes are put into a match file for that index, nonmatching indexes are reported in a 'hopped' file, and indexes that do not match the input barcodes are reported to an 'unknown' file. An index can be unknown because it has a 'N' present or because it does not reach a quality score cutoff. Each set of files (each index, hopped, unknown) should have a file for R1 and R2.
 
-Output:
+#### Output:
 - A R1 and R2 fastq file for each matching index. (R1_<index>.fastq and R2_<index>.fastq)
 - A R1 and R2 fastq file for hopped reads. (R1_hopped.fastq and R2_hopped.fastq)
 - A R1 and R2 fastq file for unknown reads. (Rq_unknown.fastq and R2_unknown.fastq)
 - Print: The number of read-pairs with properly matched indexes (per index-pair), the number of read pairs with index-hopping observed, and the number of read-pairs with unknown index(es).
 
-High Level Functions:
+### High Level Functions:
 ```
 def valid_indexes(file: path) -> dict:
     '''Takes an input file and returns a dictionary of valid illumina barcodes.'''
@@ -49,7 +49,7 @@ Input: ABCDE
 Expected output: A
 ```
 
-Pseudocode:
+### Pseudocode:
 
 Use function to make a list of valid indexes called "index_dict"
 
