@@ -1,0 +1,38 @@
+Traceback (most recent call last):
+  File "/gpfs/projects/bgmp/adayton/bioinfo/Bi622/Demultiplex/Assignment-the-first/./perbasehist.py", line 47, in <module>
+    phred_list = mean_phred(args.file, args.readlen, args.unzip)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/gpfs/projects/bgmp/adayton/bioinfo/Bi622/Demultiplex/Assignment-the-first/./perbasehist.py", line 25, in mean_phred
+    with gzip.open(file, 'rt') as fh:
+         ^^^^^^^^^^^^^^^^^^^^^
+  File "/projects/bgmp/adayton/miniforge3/lib/python3.12/gzip.py", line 61, in open
+    binary_file = GzipFile(filename, gz_mode, compresslevel)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/projects/bgmp/adayton/miniforge3/lib/python3.12/gzip.py", line 192, in __init__
+    fileobj = self.myfileobj = builtins.open(filename, mode or 'rb')
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'read1'
+Command exited with non-zero status 1
+	Command being timed: "./perbasehist.py -f read1 -l 101 -u True -o R1_perbasehist.png"
+	User time (seconds): 1.33
+	System time (seconds): 0.08
+	Percent of CPU this job got: 220%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:00.64
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 54272
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 12157
+	Voluntary context switches: 309
+	Involuntary context switches: 12
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 0
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 1
