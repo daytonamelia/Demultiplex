@@ -11,9 +11,41 @@
 | 1294_S1_L008_R4_001.fastq.gz | read2 | 101 | +33 |
 
 2. Per-base NT distribution
+
     1. Use markdown to insert your 4 histograms here.
-    2. **YOUR ANSWER HERE**
-    3. **YOUR ANSWER HERE**
+
+    R1:
+    ![R1_perbasehist.png](R1_perbasehist.png)
+    R2:
+    ![R2_perbasehist.png](R2_perbasehist.png)
+    index1:
+    ![index1_perbasehist.png](index1_perbasehist.png)
+    index2:
+    ![index2_perbasehist.png](index2_perbasehist.png)
+
+    2. What is a good quality score cutoff for index reads and biological read pairs to utilize for sample identification and downstream analysis, respectively? Justify your answer.
+
+    Anywhere between Q20 and Q30 would be appropriate. I would use Q20.
+        
+    Looking at the [illumina website's section on quality scores](https://www.illumina.com/science/technology/next-generation-sequencing/plan-experiments/quality-scores.html) Q30 is shown to be 'virtually perfect'. Looking at my histograms, all of the mean quality scores are above 30, but many are around 30, so I worry that would cut too many reads. Q20 is an error rate of 1 in 100 bp, so that seems a more appropriate bottom cutoff.
+
+    3. How many indexes have undetermined (N) base calls? (Utilize your command line tool knowledge. Submit the command(s) you used. CHALLENGE: use a one-line command)
+
+For index1: 
+```
+$ zcat 1294_S1_L008_R2_001.fastq.gz | grep -A 1 "^@" | grep -v "^@" | grep -v "^--$" | grep -c "N"
+3976613
+```
+
+There are 363246735 records in the file, so 1.1% of the records in R1 have Ns.
+
+For index 2:
+```
+$ zcat 1294_S1_L008_R3_001.fastq.gz | grep -A 1 "^@" | grep -v "^@" | grep -v "^--$" | grep -c "N"
+3328051
+```
+
+0.92% of the indexes in R3 have Ns.
     
 ## Part 2
 
