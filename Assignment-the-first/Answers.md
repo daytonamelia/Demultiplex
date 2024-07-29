@@ -15,12 +15,19 @@
     1. Use markdown to insert your 4 histograms here.
 
     R1:
+   
     ![R1_perbasehist.png](R1_perbasehist.png)
+   
     R2:
+   
     ![R2_perbasehist.png](R2_perbasehist.png)
+   
     index1:
+   
     ![index1_perbasehist.png](index1_perbasehist.png)
+   
     index2:
+   
     ![index2_perbasehist.png](index2_perbasehist.png)
 
     2. What is a good quality score cutoff for index reads and biological read pairs to utilize for sample identification and downstream analysis, respectively? Justify your answer.
