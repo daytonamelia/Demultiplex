@@ -94,7 +94,7 @@ Use function to make a list of valid indexes called "index_dict"
 
 initialize counters of each type of index pair to print at end of analysis
 
-Open all files
+Open all files (both input and output!
 
     for each line in files: # all files will have equal number of lines
     
