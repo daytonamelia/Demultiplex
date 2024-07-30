@@ -108,13 +108,13 @@ Open all files
         
         # check if indexes are valid indexes
         
-        if index1 is in index_dict or doesnt pass lowest_qscore:
+        if index1 is not in index_dict or doesnt pass lowest_qscore:
         
             write read1 with index headers to R1_unknown
             
             write read2 with index headers to R2_unknown
             
-        elif index2 is in index_dict or doesnt pass lowest_qscore:
+        elif index2 is not in index_dict or doesnt pass lowest_qscore:
         
             write read1 with index headers to R1_unknown
             
