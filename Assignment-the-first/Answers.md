@@ -15,12 +15,19 @@
     1. Use markdown to insert your 4 histograms here.
 
     R1:
+   
     ![R1_perbasehist.png](R1_perbasehist.png)
+   
     R2:
+   
     ![R2_perbasehist.png](R2_perbasehist.png)
+   
     index1:
+   
     ![index1_perbasehist.png](index1_perbasehist.png)
+   
     index2:
+   
     ![index2_perbasehist.png](index2_perbasehist.png)
 
     2. What is a good quality score cutoff for index reads and biological read pairs to utilize for sample identification and downstream analysis, respectively? Justify your answer.
@@ -87,42 +94,50 @@ Use function to make a list of valid indexes called "index_dict"
 
 initialize counters of each type of index pair to print at end of analysis
 
-Open all files
+Open all files (both input and output!
 
-    for each line in files: # all files will have equal number of lines
+    for each line in input files: # all files will have equal number of lines
     
-        read1 = line from R1
+        read1 = [R1_header, R1_sequence, +, R1_qscore]
         
-        index1 = line from R2
+        index1 = [R2_header, R2_sequence, +, R2_qscore]
         
-        index2 = reverse complement of line from R3
+        index2 = [R3_header, R3_sequence, +, R3_qscore]
         
-        read2 = line from R4
+        read2 = [R4_header, R4_sequence, +, R4_qscore]
         
         # check if indexes are valid indexes
         
-        if index1 is in index_dict or doesnt pass lowest_qscore:
+        if index1[R2_sequence] is not in index_dict or doesnt pass lowest_qscore:
+        
+            write read1 with index headers to R1_unknown
+            
+            write read2 with index headers to R2_unknown
+
+            unknown counter += 1
+            
+        elif index2[R3_sequence] is not in index_dict or doesnt pass lowest_qscore:
         
             write read1 with index headers to R1_unknown
             
             write read2 with index headers to R2_unknown
             
-        elif index2 is in index_dict or doesnt pass lowest_qscore:
-        
-            write read1 with index headers to R1_unknown
-            
-            write read2 with index headers to R2_unknown
+            unknown counter += 1
             
         else: # barcodes are valid!
         
-            if index1 == index2:
+            if index1[R2_sequence] == reversecomplement(index2[R3_sequence]]): # they match
             
                 write read1 with index headers to R1_<index1>
                 
                 write read2 with index headers to R2_<index1>
+
+                index counter += 1
                 
-            else: # index1 != index2:
+            else: # index1 != index2 ; they dont match
             
                 write read1 with index headers to R1_hopped
                 
                 write read2 with index headers to R2_hopped
+
+                hopped counter +=1
