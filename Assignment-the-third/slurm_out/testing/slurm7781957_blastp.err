@@ -1,5 +1,0 @@
-Traceback (most recent call last):
-  File "/gpfs/projects/bgmp/adayton/bioinfo/Bi622/Demultiplex/Assignment-the-third/./demultiplex.py", line 56, in <module>
-    if header and l != 0:
-       ^^^^^^
-NameError: name 'header' is not defined

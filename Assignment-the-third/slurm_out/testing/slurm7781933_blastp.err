@@ -1,5 +1,0 @@
-Traceback (most recent call last):
-  File "/gpfs/projects/bgmp/adayton/bioinfo/Bi622/Demultiplex/Assignment-the-third/./demultiplex.py", line 43, in <module>
-    with open(args.read1, "r") as r1, open(args.read2, "r") as r2, open(args.read3, "r") as r3, open(args.read4, "r") as r4:
-         ^^^^^^^^^^^^^^^^^^^^^
-FileNotFoundError: [Errno 2] No such file or directory: '{/projects/bgmp/adayton/bioinfo/Bi622/Demultiplex/TEST-input_FASTQ/}testinput_R1_01.fastq.gz'
