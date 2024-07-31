@@ -32,9 +32,7 @@
 
     2. What is a good quality score cutoff for index reads and biological read pairs to utilize for sample identification and downstream analysis, respectively? Justify your answer.
 
-    Anywhere between Q20 and Q30 would be appropriate. I would use Q20.
-        
-    Looking at the [illumina website's section on quality scores](https://www.illumina.com/science/technology/next-generation-sequencing/plan-experiments/quality-scores.html) Q30 is shown to be 'virtually perfect'. Looking at my histograms, all of the mean quality scores are above 30, but many are around 30, so I worry that would cut too many reads. Q20 is an error rate of 1 in 100 bp, so that seems a more appropriate bottom cutoff.
+    Looking at the [illumina website's section on quality scores](https://www.illumina.com/science/technology/next-generation-sequencing/plan-experiments/quality-scores.html) Q30 is shown to be 'virtually perfect'. Looking at my histograms, all of the mean quality scores are above 30, but many are around 30, so I worry that would cut too many reads. Q20 is an error rate of 1 in 100 bp, but that is too low. However, I want a high standard for my cutoff for indexes so I will go with Q30.
 
     3. How many indexes have undetermined (N) base calls? (Utilize your command line tool knowledge. Submit the command(s) you used. CHALLENGE: use a one-line command)
 
