@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/gpfs/projects/bgmp/adayton/bioinfo/Bi622/Demultiplex/Assignment-the-third/./demultiplex.py", line 42, in <module>
+    for key, val in index_list.values():
+        ^^^^^^^^
+ValueError: too many values to unpack (expected 2)

@@ -1,0 +1,74 @@
+Hopped Indexes:
+	CTCTGGAT-AACAGCGA	1
+12.5% of all reads
+	TAGCCATG-TCGGATTC	1
+12.5% of all reads
+
+2 hopped reads
+25.0% hopped reads
+
+Matched Indexes:
+	GTAGCGTA	1
+12.5% of all reads
+	CGATCGAT	0
+0.0% of all reads
+	GATCAAGG	0
+0.0% of all reads
+	AACAGCGA	0
+0.0% of all reads
+	TAGCCATG	0
+0.0% of all reads
+	CGGTAATC	0
+0.0% of all reads
+	CTCTGGAT	0
+0.0% of all reads
+	TACCGGAT	0
+0.0% of all reads
+	CTAGCTCA	0
+0.0% of all reads
+	CACTTCAC	1
+12.5% of all reads
+	GCTACTCT	0
+0.0% of all reads
+	ACGATCAG	0
+0.0% of all reads
+	TATGGCAC	0
+0.0% of all reads
+	TGTTCCGT	0
+0.0% of all reads
+	GTCCTAAG	0
+0.0% of all reads
+	TCGACAAG	0
+0.0% of all reads
+	TCTTCGAC	0
+0.0% of all reads
+	ATCATGCG	0
+0.0% of all reads
+	ATCGTGGT	0
+0.0% of all reads
+	TCGAGAGT	0
+0.0% of all reads
+	TCGGATTC	0
+0.0% of all reads
+	GATCTTGC	0
+0.0% of all reads
+	AGAGTCCA	0
+0.0% of all reads
+	AGGATAGC	0
+0.0% of all reads
+
+2 matched reads
+25.0% matched reads
+
+Unknown Indexes:
+	NNATATAT-AACAGCGA	1
+12.5% of all reads
+	AACAGCGA-AACAGCNN	1
+12.5% of all reads
+	AGATATAT-AACAGCGA	1
+12.5% of all reads
+	AACAGCGA-TAAAATAT	1
+12.5% of all reads
+
+4 unknown reads
+50.0% unknown reads
