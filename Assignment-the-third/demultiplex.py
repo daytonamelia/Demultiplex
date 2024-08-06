@@ -46,18 +46,18 @@ matched_indexes = {}
 output_files = []
 for key, val in index_list.items():
     matched_indexes[val] = 0
-    output_files.append(f"{args.output}demux_matched_{val}_R1.txt")
-    output_files.append(f"{args.output}demux_matched_{val}_R2.txt")
+    output_files.append(f"{args.output}demux_matched_{val}_R1.fq")
+    output_files.append(f"{args.output}demux_matched_{val}_R2.fq")
 
 # make hopped index output files
 hopped_indexes = {}
-output_files.append(f"{args.output}demux_hopped_R1.txt")
-output_files.append(f"{args.output}demux_hopped_R2.txt")
+output_files.append(f"{args.output}demux_hopped_R1.fq")
+output_files.append(f"{args.output}demux_hopped_R2.fq")
 
 # make unknown index output files
 unknown_indexes = {}
-output_files.append(f"{args.output}demux_unknown_R1.txt")
-output_files.append(f"{args.output}demux_unknown_R2.txt")
+output_files.append(f"{args.output}demux_unknown_R1.fq")
+output_files.append(f"{args.output}demux_unknown_R2.fq")
 
 # open all output files
 # https://stackoverflow.com/questions/29550290/how-to-open-a-list-of-files-in-python
@@ -90,15 +90,15 @@ with gzip.open(args.read1, "rt") as r1, gzip.open(args.read2, "rt") as r2, gzip.
             # index 1 is unknown
             if index1 not in index_list.values() or bioinfo.convert_phred(lowest_qscore(index1_qscore, args.phredscore)) < args.cutoff:
                 # write to R1 file
-                openoutput[f"{args.output}demux_unknown_R1.txt"].write(f"{record1[0]} {index1}-{index2}\n")
-                openoutput[f"{args.output}demux_unknown_R1.txt"].write(f"{record1[1]}\n")
-                openoutput[f"{args.output}demux_unknown_R1.txt"].write(f"{record1[2]}\n")
-                openoutput[f"{args.output}demux_unknown_R1.txt"].write(f"{record1[3]}\n")
+                openoutput[f"{args.output}demux_unknown_R1.fq"].write(f"{record1[0]} {index1}-{index2}\n")
+                openoutput[f"{args.output}demux_unknown_R1.fq"].write(f"{record1[1]}\n")
+                openoutput[f"{args.output}demux_unknown_R1.fq"].write(f"{record1[2]}\n")
+                openoutput[f"{args.output}demux_unknown_R1.fq"].write(f"{record1[3]}\n")
                 # write to R2 file
-                openoutput[f"{args.output}demux_unknown_R2.txt"].write(f"{record4[0]} {index1}-{index2}\n")
-                openoutput[f"{args.output}demux_unknown_R2.txt"].write(f"{record4[1]}\n")
-                openoutput[f"{args.output}demux_unknown_R2.txt"].write(f"{record4[2]}\n")
-                openoutput[f"{args.output}demux_unknown_R2.txt"].write(f"{record4[3]}\n")
+                openoutput[f"{args.output}demux_unknown_R2.fq"].write(f"{record4[0]} {index1}-{index2}\n")
+                openoutput[f"{args.output}demux_unknown_R2.fq"].write(f"{record4[1]}\n")
+                openoutput[f"{args.output}demux_unknown_R2.fq"].write(f"{record4[2]}\n")
+                openoutput[f"{args.output}demux_unknown_R2.fq"].write(f"{record4[3]}\n")
                 # make stats for unknown_indexes
                 if f"{index1}-{index2}" not in unknown_indexes:
                     unknown_indexes[f"{index1}-{index2}"] = 1
@@ -107,15 +107,15 @@ with gzip.open(args.read1, "rt") as r1, gzip.open(args.read2, "rt") as r2, gzip.
             # index 1 is OK but index 2 is unknown
             elif index2 not in index_list.values() or bioinfo.convert_phred(lowest_qscore(index2_qscore, args.phredscore)) < args.cutoff:
                 # write to R1 file
-                openoutput[f"{args.output}demux_unknown_R1.txt"].write(f"{record1[0]} {index1}-{index2}\n")
-                openoutput[f"{args.output}demux_unknown_R1.txt"].write(f"{record1[1]}\n")
-                openoutput[f"{args.output}demux_unknown_R1.txt"].write(f"{record1[2]}\n")
-                openoutput[f"{args.output}demux_unknown_R1.txt"].write(f"{record1[3]}\n")
+                openoutput[f"{args.output}demux_unknown_R1.fq"].write(f"{record1[0]} {index1}-{index2}\n")
+                openoutput[f"{args.output}demux_unknown_R1.fq"].write(f"{record1[1]}\n")
+                openoutput[f"{args.output}demux_unknown_R1.fq"].write(f"{record1[2]}\n")
+                openoutput[f"{args.output}demux_unknown_R1.fq"].write(f"{record1[3]}\n")
                 # write to R2 file
-                openoutput[f"{args.output}demux_unknown_R2.txt"].write(f"{record4[0]} {index1}-{index2}\n")
-                openoutput[f"{args.output}demux_unknown_R2.txt"].write(f"{record4[1]}\n")
-                openoutput[f"{args.output}demux_unknown_R2.txt"].write(f"{record4[2]}\n")
-                openoutput[f"{args.output}demux_unknown_R2.txt"].write(f"{record4[3]}\n")
+                openoutput[f"{args.output}demux_unknown_R2.fq"].write(f"{record4[0]} {index1}-{index2}\n")
+                openoutput[f"{args.output}demux_unknown_R2.fq"].write(f"{record4[1]}\n")
+                openoutput[f"{args.output}demux_unknown_R2.fq"].write(f"{record4[2]}\n")
+                openoutput[f"{args.output}demux_unknown_R2.fq"].write(f"{record4[3]}\n")
                 # make stats for unknown_indexes
                 if f"{index1}-{index2}" not in unknown_indexes:
                     unknown_indexes[f"{index1}-{index2}"] = 1
@@ -124,27 +124,27 @@ with gzip.open(args.read1, "rt") as r1, gzip.open(args.read2, "rt") as r2, gzip.
             else: # indexes are not unknown. are they hopped or do they match?
                 if index1 == index2: # they match!
                     # write to R1 file
-                    openoutput[f"{args.output}demux_matched_{index1}_R1.txt"].write(f"{record1[0]} {index1}-{index2}\n")
-                    openoutput[f"{args.output}demux_matched_{index1}_R1.txt"].write(f"{record1[1]}\n")
-                    openoutput[f"{args.output}demux_matched_{index1}_R1.txt"].write(f"{record1[2]}\n")
-                    openoutput[f"{args.output}demux_matched_{index1}_R1.txt"].write(f"{record1[3]}\n")
+                    openoutput[f"{args.output}demux_matched_{index1}_R1.fq"].write(f"{record1[0]} {index1}-{index2}\n")
+                    openoutput[f"{args.output}demux_matched_{index1}_R1.fq"].write(f"{record1[1]}\n")
+                    openoutput[f"{args.output}demux_matched_{index1}_R1.fq"].write(f"{record1[2]}\n")
+                    openoutput[f"{args.output}demux_matched_{index1}_R1.fq"].write(f"{record1[3]}\n")
                     # write to R2 file
-                    openoutput[f"{args.output}demux_matched_{index2}_R2.txt"].write(f"{record4[0]} {index1}-{index2}\n")
-                    openoutput[f"{args.output}demux_matched_{index2}_R2.txt"].write(f"{record4[1]}\n")
-                    openoutput[f"{args.output}demux_matched_{index2}_R2.txt"].write(f"{record4[2]}\n")
-                    openoutput[f"{args.output}demux_matched_{index2}_R2.txt"].write(f"{record4[3]}\n")
+                    openoutput[f"{args.output}demux_matched_{index2}_R2.fq"].write(f"{record4[0]} {index1}-{index2}\n")
+                    openoutput[f"{args.output}demux_matched_{index2}_R2.fq"].write(f"{record4[1]}\n")
+                    openoutput[f"{args.output}demux_matched_{index2}_R2.fq"].write(f"{record4[2]}\n")
+                    openoutput[f"{args.output}demux_matched_{index2}_R2.fq"].write(f"{record4[3]}\n")
                     # make stats for matched_indexes - this is the one case where the dictionary is already initialized
                     matched_indexes[f"{index1}"] +=1
                 else: # they hopped!
-                    openoutput[f"{args.output}demux_hopped_R1.txt"].write(f"{record1[0]} {index1}-{index2}\n")
-                    openoutput[f"{args.output}demux_hopped_R1.txt"].write(f"{record1[1]}\n")
-                    openoutput[f"{args.output}demux_hopped_R1.txt"].write(f"{record1[2]}\n")
-                    openoutput[f"{args.output}demux_hopped_R1.txt"].write(f"{record1[3]}\n")
+                    openoutput[f"{args.output}demux_hopped_R1.fq"].write(f"{record1[0]} {index1}-{index2}\n")
+                    openoutput[f"{args.output}demux_hopped_R1.fq"].write(f"{record1[1]}\n")
+                    openoutput[f"{args.output}demux_hopped_R1.fq"].write(f"{record1[2]}\n")
+                    openoutput[f"{args.output}demux_hopped_R1.fq"].write(f"{record1[3]}\n")
                     # write to R2 file
-                    openoutput[f"{args.output}demux_hopped_R2.txt"].write(f"{record4[0]} {index1}-{index2}\n")
-                    openoutput[f"{args.output}demux_hopped_R2.txt"].write(f"{record4[1]}\n")
-                    openoutput[f"{args.output}demux_hopped_R2.txt"].write(f"{record4[2]}\n")
-                    openoutput[f"{args.output}demux_hopped_R2.txt"].write(f"{record4[3]}\n")
+                    openoutput[f"{args.output}demux_hopped_R2.fq"].write(f"{record4[0]} {index1}-{index2}\n")
+                    openoutput[f"{args.output}demux_hopped_R2.fq"].write(f"{record4[1]}\n")
+                    openoutput[f"{args.output}demux_hopped_R2.fq"].write(f"{record4[2]}\n")
+                    openoutput[f"{args.output}demux_hopped_R2.fq"].write(f"{record4[3]}\n")
                     # make stats for hopped_indexes
                     if f"{index1}-{index2}" not in hopped_indexes:
                         hopped_indexes[f"{index1}-{index2}"] = 1
@@ -178,7 +178,7 @@ for file in openoutput.values():
 print("Printing stats to statsfile...", flush=True)
 
 # make stats file
-with open (f"{args.output}demuxed_stats.txt", "w") as statsfile:
+with open (f"demux_stats.txt", "w") as statsfile:
     hopped_sum = 0
     unknown_sum = 0
     matched_sum = 0
@@ -212,9 +212,10 @@ print(f"Making histograms...", flush=True)
 fig, ax = plt.subplots()
 ax.bar(matched_indexes.keys(), matched_indexes.values(), edgecolor='k')
 ax.set_title('Matched Indexes Count')
+ax.minorticks_on()
 ax.set_xlabel('Index')
 ax.set_ylabel('Count')
 fig.autofmt_xdate(rotation=45)
-plt.savefig(f"{args.output}matched_hist.png")
+plt.savefig(f"matched_hist.png")
 
 print("Done successfully!", flush=True)
