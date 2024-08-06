@@ -1,0 +1,17 @@
+Parsing index file and making/opening output files...
+Reading input files...
+Making stats...
+505575 hopped reads
+
+0.13918225582949836% hopped reads
+
+288446518 matched reads
+
+79.40787630204026% matched reads
+
+74294642 unknown reads
+
+20.45294144213024% unknown reads
+
+Making histograms...
+Done successfully!

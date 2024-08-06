@@ -175,35 +175,41 @@ with gzip.open(args.read1, "rt") as r1, gzip.open(args.read2, "rt") as r2, gzip.
 for file in openoutput.values():
     file.close()
 
-print("Printing stats to statsfile...", flush=True)
+print("Making stats...", flush=True)
 
 # make stats file
-with open (f"demux_stats.txt", "w") as statsfile:
+with open(f"demux_stats.txt", "w") as statsfile, open(f"hopped_indexes.txt", "w") as hoppedfile, open(f"matched_indexes.txt", "w") as matchedfile, open("unknown_indexes.txt", "w") as unknownfile:
     hopped_sum = 0
     unknown_sum = 0
     matched_sum = 0
     statsfile.write(f"Hopped Indexes:\n")
     for key,value in hopped_indexes.items():
         hopped_sum += value
-        statsfile.write(f"\t{key}\t{value}\n")
-        statsfile.write(f"{value/(line_counter/4)*100}% of all reads\n")
-    statsfile.write(f"\n{hopped_sum} hopped reads\n")
+        hoppedfile.write(f"\t{key}\t{value}\n")
+        hoppedfile.write(f"{value/(line_counter/4)*100}% of all reads\n")
+    print(f"{hopped_sum} hopped reads\n")
+    print(f"{hopped_sum/(line_counter/4)*100}% hopped reads\n")
+    statsfile.write(f"{hopped_sum} hopped reads\n")
     statsfile.write(f"{hopped_sum/(line_counter/4)*100}% hopped reads\n")
 
     statsfile.write(f"\nMatched Indexes:\n")
     for key, value in matched_indexes.items():
         matched_sum += value
-        statsfile.write(f"\t{key}\t{value}\n")
-        statsfile.write(f"{value/(line_counter/4)*100}% of all reads\n")
-    statsfile.write(f"\n{matched_sum} matched reads\n")
+        matchedfile.write(f"\t{key}\t{value}\n")
+        matchedfile.write(f"{value/(line_counter/4)*100}% of all reads\n")
+    print(f"{matched_sum} matched reads\n")
+    print(f"{matched_sum/(line_counter/4)*100}% matched reads\n")
+    statsfile.write(f"{matched_sum} matched reads\n")
     statsfile.write(f"{matched_sum/(line_counter/4)*100}% matched reads\n")
 
     statsfile.write(f"\nUnknown Indexes:\n")
     for key,value in unknown_indexes.items():
         unknown_sum += value
-        statsfile.write(f"\t{key}\t{value}\n")
-        statsfile.write(f"{value/(line_counter/4)*100}% of all reads\n")
-    statsfile.write(f"\n{unknown_sum} unknown reads\n")
+        unknownfile.write(f"\t{key}\t{value}\n")
+        unknownfile.write(f"{value/(line_counter/4)*100}% of all reads\n")
+    print(f"{unknown_sum} unknown reads\n")
+    print(f"{unknown_sum/(line_counter/4)*100}% unknown reads\n")
+    statsfile.write(f"{unknown_sum} unknown reads\n")
     statsfile.write(f"{unknown_sum/(line_counter/4)*100}% unknown reads\n")
     
 print(f"Making histograms...", flush=True)
